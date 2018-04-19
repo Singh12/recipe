@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Recipe } from './model/recipe';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
-}
+  // create a resipe array and pass n number of data in it change from recipe:Recipe to recipes: Recipe[].
+  // create recipe:Recipe.
+  // this.recipe=new Recipe(args of recipe class)
+ }
