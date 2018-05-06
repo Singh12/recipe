@@ -8,6 +8,9 @@ import { RecipeListComponent } from './components/recipe-list/recipe-list.compon
 import { RecipeSummeryComponent } from './components/recipe-summery/recipe-summery.component';
 import { RecipeDetailsComponent } from './components/recipe-details/recipe-details.component';
 import { EditNewRecipeComponent } from './components/edit-new-recipe/edit-new-recipe.component';
+import { NotFoundComponent } from './component/not-found/not-found.component';
+
+import { RecipeService } from './services/recipe.service';
 
 
 @NgModule({
@@ -16,7 +19,8 @@ import { EditNewRecipeComponent } from './components/edit-new-recipe/edit-new-re
     RecipeListComponent,
     RecipeSummeryComponent,
     RecipeDetailsComponent,
-    EditNewRecipeComponent
+    EditNewRecipeComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +29,10 @@ import { EditNewRecipeComponent } from './components/edit-new-recipe/edit-new-re
       {
         path: 'recipe',
         component: RecipeListComponent
+      },
+      {
+        path: '404',
+        component: NotFoundComponent
       },
       {
         path: 'addnewrecipe',
@@ -41,7 +49,7 @@ import { EditNewRecipeComponent } from './components/edit-new-recipe/edit-new-re
       }
     ]),
   ],
-  providers: [],
+  providers: [RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

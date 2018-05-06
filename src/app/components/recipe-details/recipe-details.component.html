@@ -1,5 +1,6 @@
 <button (click)="goback()">GoBack</button>
-<div class="recipe panel panel-default">
+<p *ngIf="!recipeonloadboolen">Loading Recipe. Please wait for a moment....</p>
+<div class="recipe panel panel-default" *ngIf="recipeonloadboolen">
 
   <div class="panel-heading">
     <h3 class="panel-title data-title">{{recipe.title}}</h3>
