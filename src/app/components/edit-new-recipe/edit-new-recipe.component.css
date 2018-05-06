@@ -1,0 +1,27 @@
+div.input-group{
+    margin: 5px 0;
+}
+div.newrecipe {
+    max-width: 500px;
+}
+div.ingredient input.form-control {
+    width: 40%;
+    display: inline;
+}
+div.ingredient {
+    margin-bottom: 7px;
+}
+div.ingredient a, div.instruction a{
+    cursor: pointer;
+    font-size: 80%;
+}
+div.instruction input.form-control {
+    width: 60%;
+    display: inline;
+}
+div.instruction {
+    margin-bottom: 7px;
+}
+div.add-ingredient input, div.add-instruction input{
+    width: 50px;
+}

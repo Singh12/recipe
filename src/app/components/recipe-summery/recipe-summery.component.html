@@ -1,0 +1,26 @@
+
+<div class="recipe panel panel-default " (click)="userClick()">
+
+  <div class="panel-heading">
+      <h3 class="panel-title">{{recipe.title}}</h3>
+  </div>
+  <div class="panel-body">
+      <div class="cover-photo-holder">
+          <img src="{{recipe.cover_image ? recipe.cover_image : '/assets/no_image.png'}}">
+      </div>
+      <p>{{recipe.description}}</p>
+      <div class="time_to_prepare" style="float: left; font-weight: bold; width: 150px;">
+        Prepration Time:
+      </div>
+      <div>
+        {{recipe.prepration_time}}
+      </div>
+      <div class="time_to_prepare" style="float: left; font-weight: bold; width: 150px;">
+        Feed to How Many:
+      </div>
+      <div>
+        {{recipe.feed_this_many}}
+      </div>
+  </div>
+  <div style="font-size: 12px; cursor: pointer;" (click)="zoomClicked()">Zoom</div>
+</div>
