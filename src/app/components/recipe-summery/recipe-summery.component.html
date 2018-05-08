@@ -1,5 +1,5 @@
 
-<div class="recipe panel panel-default col-md-5">
+<div class="recipe panel panel-default " (click)="userClick()">
 
   <div class="panel-heading">
       <h3 class="panel-title">{{recipe.title}}</h3>
@@ -13,13 +13,13 @@
         Prepration Time:
       </div>
       <div>
-        {{recipe.prepration_time}}
+        {{recipe.preparation_time}}
       </div>
       <div class="time_to_prepare" style="float: left; font-weight: bold; width: 150px;">
         Feed to How Many:
       </div>
       <div>
-        {{recipe.feed_this_many}}
+        {{recipe.feeds_this_many}}
       </div>
   </div>
   <div style="font-size: 12px; cursor: pointer;" (click)="zoomClicked()">Zoom</div>

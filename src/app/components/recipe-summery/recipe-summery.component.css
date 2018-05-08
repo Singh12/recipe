@@ -16,3 +16,10 @@ margin: 10px 0;
         margin: 20px 10px;
         }
 }
+.recipe.panel.panel-default {
+    cursor: pointer;
+}
+.recipe.panel.panel-default {
+    width: 46%;
+    float: left;
+}

@@ -2,10 +2,11 @@ interface Ipersion{
 first_name:string,
 age:number,
 }
-let persion1:Ipersion={
-    first_name:'rajnish',
-    age:27,
+let persion1: Ipersion = {
+    first_name : 'rajnish',
+    age: 27,
 }
+
 persion1.first_name='rajnish';
 persion1.age=27;
 

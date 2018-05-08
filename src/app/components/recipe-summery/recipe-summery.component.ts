@@ -11,9 +11,9 @@ export class RecipeSummeryComponent {
   // create recipe member variable of type recipe
   recipe: Recipe;
   @Output()
-  zoomIn: EventEmitter<Recipe> = new EventEmitter();
+  userClicked: EventEmitter<number> = new EventEmitter();
   constructor() { }
-  public zoomClicked() {
-    this.zoomIn.emit(this.recipe);
+  userClick() {
+    this.userClicked.emit(this.recipe.id);
   }
 }

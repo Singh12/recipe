@@ -1,32 +1,9 @@
+<input style="float: right;" type="button" value="add New Recipe" (click)="addRecipeForm()">
 <h1 class="alert alert-success">
     This are our recipeis</h1>
+<p *ngIf="!recipeloadboolean" style="color: blue;">Wait for recipe to load.Still Loading.....</p>
+<p *ngIf="recipeloadboolean && (!recipes || !recipes.length)">Recipe list is empty..Why can't you add one now</p>
 <!--one way banding variable using [recipe] and the value is recipe that will take input to a summery page-->
-<app-recipe-summery *ngFor="let recipe of recipes" [recipe]="recipe" (zoomIn)="zoomInOnRecipe(recipe)"></app-recipe-summery>
+<app-recipe-summery *ngFor="let recipe of recipes" [recipe]="recipe"  (userClicked)="userClickedOnRecipe($event)"></app-recipe-summery>
 <div style="clear: both;"></div>
 
-<div class="new-recipe panel panel-default" style="max-width: 700px;">
-    <div class="panel-heading">
-        <h4>
-            Add new Recipe
-        </h4>
-    </div>
-    <div class="panel-body">
-        <div class="input-group">
-            <input style="width:400px;" [(ngModel)]="recipe_in_progress.title" type="text" class="form-control" placeholder="Recipe title" name="title">
-        </div>
-        <div class="input-group">
-            <textarea style="width: 400px;" [(ngModel)]="recipe_in_progress.description" class="form-control" placeholder="Recipe Description" rows="5" name="description"></textarea>
-        </div>
-        <div class="input-group">
-            <input type="text" class="form-control" [(ngModel)]="recipe_in_progress.prepration_time"  placeholder="Prepration Time" name="prepration_time">
-            <span class="input-group-addon">Time</span>
-        </div>
-        <div class="input-group">
-            <input type="text" class="form-control" [(ngModel)]="recipe_in_progress.feed_this_many" placeholder="Recipe feeds to persion" name="feed_this_many">
-            <span class="input-group-addon">People</span>
-        </div>
-        <div class="input-group">
-            <input type="button" name="Create Recipe" value="Create Recipe" (click)="createRecipe()"/>
-        </div>
-    </div>
-</div>
