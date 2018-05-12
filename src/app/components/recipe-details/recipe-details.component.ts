@@ -13,10 +13,17 @@ import { RecipeService } from '../../services/recipe.service';
 })
 export class RecipeDetailsComponent implements OnInit {
  recipeonloadboolen: boolean;
+ colorchanges: any;
+ loadEror: boolean;
+ errorText: string;
  recipe: Recipe;
   constructor(private route: ActivatedRoute,
   private location: Location, private router: Router, private recipe_service: RecipeService) {
     this.recipeonloadboolen = false;
+    this.loadEror = false;
+    this.colorchanges = {
+      'dark': false
+    };
   }
 
   ngOnInit(): void {
@@ -26,11 +33,19 @@ export class RecipeDetailsComponent implements OnInit {
     .then((recipe) => {
       this.recipe = recipe;
       this.recipeonloadboolen = true;
+    })
+    .catch((err) => {
+   const body = JSON.parse(err._body);
+   this.loadEror = true;
+   this.errorText = body.message;
     });
     });
   }
   public goback() {
     this.location.back();
   }
-
+  public colorChange() {
+    const newvalu = !this.colorchanges['dark'];
+    this.colorchanges = {'dark': newvalu};
+  }
 }

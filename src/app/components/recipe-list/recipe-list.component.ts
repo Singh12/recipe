@@ -10,10 +10,13 @@ import { RecipeService } from '../../services/recipe.service';
 })
 export class RecipeListComponent implements OnInit {
   recipeloadboolean: boolean;
+  loadEror: boolean;
+  errorText: string;
   recipes: Recipe[];
   recipe_in_progress: Recipe;
   constructor(private router: Router, private recipe_service: RecipeService) {
     this.recipe_in_progress = Recipe.createBlank();
+    this.loadEror = false;
   }
   ngOnInit() {
    // use the recipe service to get recipe
@@ -21,6 +24,11 @@ export class RecipeListComponent implements OnInit {
    .then((recipes) => {
      this.recipes = recipes;
      this.recipeloadboolean = true;
+   })
+   .catch((err) => {
+    const body = JSON.parse(err._body);
+    this.loadEror = true;
+    this.errorText = body.message;
    });
   }
   public createRecipe() {

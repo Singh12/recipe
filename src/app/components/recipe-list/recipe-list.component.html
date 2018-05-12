@@ -1,6 +1,10 @@
 <input style="float: right;" type="button" value="add New Recipe" (click)="addRecipeForm()">
+<div class="alert alert-primary" role="alert" *ngIf="loadEror">
+    {{errorText}} <a [routerLink]="['/recipe']" class="alert-link">Go to main page</a>. Give it a click if you like.
+  </div>
 <h1 class="alert alert-success">
     This are our recipeis</h1>
+
 <p *ngIf="!recipeloadboolean" style="color: blue;">Wait for recipe to load.Still Loading.....</p>
 <p *ngIf="recipeloadboolean && (!recipes || !recipes.length)">Recipe list is empty..Why can't you add one now</p>
 <!--one way banding variable using [recipe] and the value is recipe that will take input to a summery page-->

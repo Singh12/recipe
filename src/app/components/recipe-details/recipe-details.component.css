@@ -29,3 +29,6 @@ div#instructions{
     margin: 20px 0;
     padding: 5px 10px;
 }
+.dark {
+    background: red;
+}

@@ -15,14 +15,16 @@ export class RecipeService {
     return this.http
       .get(RECIPE_SERVER + '/v1/recipes.json')
       .toPromise()
-      .then(response => response.json().data as Recipe[]);
+      .then(response => response.json().data as Recipe[])
+      .catch(this.handleError);
   }
   getRecipeById(recipe_id: number): Promise<Recipe> {
     return this.http
       // .get(RECIPE_SERVER + '/v1/recipes/' + recipe_id + '.json')
       .get(RECIPE_SERVER + `/v1/recipes/${recipe_id}.json`)
       .toPromise()
-      .then(response => response.json().data as Recipe);
+      .then(response => response.json().data as Recipe)
+      .catch(this.handleError);
   }
   addNewRecipe(recipe: Recipe): Promise<Recipe> {
     // this.recipes.unshift(recipe);
@@ -30,7 +32,11 @@ export class RecipeService {
     return this.http
     .put(RECIPE_SERVER + '/v1/recipes.json', recipe)
     .toPromise()
-    .then(response => response.json().data as Recipe);
+    .then(response => response.json().data as Recipe)
+    .catch(this.handleError);
+  }
+  private handleError(error: any): Promise<any> {
+    return Promise.reject(error.message || error);
   }
 }
 
