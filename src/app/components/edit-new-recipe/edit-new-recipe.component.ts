@@ -48,6 +48,7 @@ export class EditNewRecipeComponent implements OnInit {
   public goback() {
     this.locale.back();
   }
+  /*
   form_validation(event) {
     this.form_disable = true;
     // console.log(event.target.value); get the current value form the textbox events
@@ -81,4 +82,5 @@ export class EditNewRecipeComponent implements OnInit {
      }
     this.form_disable = false;
   }
+  */
 }
