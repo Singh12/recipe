@@ -1,0 +1,24 @@
+<div class="navbar navbar-inverse navbar-fixed-top" [ngClass]="color_change">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" [routerLink]="['/recipe']"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="anchor_taghome" (click)="addRecipeForm()">Add New Recipe</a></li>
+        <li><a class="anchor_taghome" (click)="change_color()">Change Header Color</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+<div class="wide">
+  	<div class="col-xs-5 line"><hr></div>
+    <div class="col-xs-2 logo">Logo</div>
+    <div class="col-xs-5 line"><hr></div>
+</div>

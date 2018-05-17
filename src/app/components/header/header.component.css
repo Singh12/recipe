@@ -1,0 +1,16 @@
+.navbar-inverse {
+    background-color: #7f0d00;
+    border-color: #080808;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #ffffff;
+}
+span.glyphicon.glyphicon-home {
+    color: #fff;
+}
+.anchor_taghome{
+    cursor: pointer;
+}
+.bgcolor{
+background: #b71b09;
+}

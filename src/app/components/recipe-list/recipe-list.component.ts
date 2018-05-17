@@ -43,7 +43,4 @@ export class RecipeListComponent implements OnInit {
     console.log(recipe_id);
     this.router.navigateByUrl('/recipe/' + recipe_id);
   }
-  public addRecipeForm() {
-    this.router.navigateByUrl('/addnewrecipe');
-  }
 }

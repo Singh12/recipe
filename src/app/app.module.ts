@@ -12,6 +12,8 @@ import { EditNewRecipeComponent } from './components/edit-new-recipe/edit-new-re
 import { NotFoundComponent } from './component/not-found/not-found.component';
 
 import { RecipeService } from './services/recipe.service';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { RecipeService } from './services/recipe.service';
     RecipeSummeryComponent,
     RecipeDetailsComponent,
     EditNewRecipeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

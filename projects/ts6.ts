@@ -43,25 +43,25 @@ let persion3:Idescriptivenationality={
     zone:'north',
     nasnality:'Indian'
 }
-console.log(persion2)
+console.log(persion2);
 
-interface Idisplayable{
-    display():void;
-    displayasstring():string;
+interface Idisplayable {
+    display(): void;
+    displayasstring(): string;
 }
-//class can implements interfaces
+// class can implements interfaces
 class Persion implements Idisplayable{
-    first_name:string;
-    last_name:string;
-    age:number;
-    private _ssn:string;
-    display():void{
+    first_name: string;
+    last_name: string;
+    age: number;
+    private _ssn: string;
+    display(): void {
      console.log(this);
     }
-    displayasstring():string{
-        return JSON.stringify(this,null,2);
+    displayasstring(): string {
+        return JSON.stringify(this, null, 2);
     }
-    constructor(fn:string,ln:string,age:number){
+    constructor(fn:string,ln: string, age: number) {
         this.first_name=fn;
         this.last_name=ln;
         this.age=age;
@@ -75,8 +75,8 @@ console.log(pp1.displayasstring());
 
 //to extends other class 
 class Superpersion extends Persion{
-    super_power:string;
-    constructor(fn:string,ln:string,age:number,sp:string){
+    super_power: string;
+    constructor(fn: string, ln: string, age: number, sp: string){
         super(fn,ln,age);
         this.super_power=sp;
     }

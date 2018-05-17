@@ -1,6 +1,6 @@
 div.cover-photo-holder img{
-    width: 150px;
-    height: 150px;
+    width: 350px;
+    height: 350px;
     float: right;
     margin: 5px;
 }
@@ -31,4 +31,7 @@ div#instructions{
 }
 .dark {
     background: red;
+}
+.recipe_padding[_ngcontent-c2] {
+    margin-top: 3rem;
 }
