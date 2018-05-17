@@ -7,24 +7,24 @@
   </div>
   <div class="panel-body">
       <div class="input-group">
-          <input style="width:400px;" [(ngModel)]="recipe_in_progress.title" type="text" class="form-control" placeholder="Recipe title" name="title">
+          <input style="width:400px;" [(ngModel)]="recipe_in_progress.title" (keyup)="form_validation($event)" type="text" class="form-control" placeholder="Recipe title" name="title">
       </div>
       <div class="input-group">
-          <textarea style="width: 400px;" [(ngModel)]="recipe_in_progress.description" class="form-control" placeholder="Recipe Description" rows="5" name="description"></textarea>
+          <textarea style="width: 400px;" [(ngModel)]="recipe_in_progress.description" (keyup)="form_validation($event)" class="form-control" placeholder="Recipe Description" rows="5" name="description"></textarea>
       </div>
       <div class="input-group">
-          <input type="text" class="form-control" [(ngModel)]="recipe_in_progress.preparation_time"  placeholder="Prepration Time" name="preparation_time">
+          <input type="text" class="form-control" [(ngModel)]="recipe_in_progress.preparation_time" (keyup)="form_validation($event)"  placeholder="Prepration Time" name="preparation_time">
           <span class="input-group-addon">Time</span>
       </div>
       <div class="input-group">
-          <input type="text" class="form-control" [(ngModel)]="recipe_in_progress.feeds_this_many" placeholder="Recipe feeds to persion" name="feeds_this_many">
+          <input type="text" class="form-control" [(ngModel)]="recipe_in_progress.feeds_this_many" (keyup)="form_validation($event)" placeholder="Recipe feeds to persion" name="feeds_this_many">
           <span class="input-group-addon">People</span>
       </div>
       <div class="form-group">
           <label>Ingredients</label>
           <div class="ingredient" *ngFor="let ingredient of recipe_in_progress.ingredients; let i = index">
-              <input style="width: 40%" type="text" [(ngModel)]="recipe_in_progress.ingredients[i].ingredient" placeholder="Ingredients">
-              <input style="width: 40%" type="text" [(ngModel)]="recipe_in_progress.ingredients[i].measure" placeholder="How Much">
+              <input style="width: 40%" type="text" [(ngModel)]="recipe_in_progress.ingredients[i].ingredient" (keyup)="form_validation($event)" placeholder="Ingredients">
+              <input style="width: 40%" type="text" [(ngModel)]="recipe_in_progress.ingredients[i].measure" (keyup)="form_validation($event)" placeholder="How Much">
               <button (click) = "deleteIngredient(i)" >Delete</button>
           </div>
           <div class="add-ingredient">
@@ -34,7 +34,7 @@
       <div class="form-group">
             <label>Instructions</label>
             <div class="instruction" *ngFor="let ingredient of recipe_in_progress.instructions; let i = index">
-                <input style="width: 40%" type="text" [(ngModel)]="recipe_in_progress.instructions[i].instruction" placeholder="instructions">
+                <input style="width: 40%" type="text" (keyup)="form_validation($event)" [(ngModel)]="recipe_in_progress.instructions[i].instruction" placeholder="instructions">
               
                 <button (click) = "deleteInstructions(i)" >Delete</button>
             </div>
@@ -43,7 +43,7 @@
             </div>
         </div>
       <div class="input-group">
-          <input type="button" name="Create Recipe" value="Create Recipe" (click)="createRecipe()"/>
+          <input type="button" name="Create Recipe" [disabled]="form_disable" value="Create Recipe" (click)="createRecipe()"/>
       </div>
   </div>
 </div>
