@@ -1,6 +1,6 @@
-function persion(persions:string){
-    return "Hello"+persions;
+function persion(persions: string) {
+    return "Hello" + persions;
 }
 
-var user="rajnish";
+var user = "rajnish";
 console.log(persion(user));
