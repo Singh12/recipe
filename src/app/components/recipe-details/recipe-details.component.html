@@ -4,16 +4,17 @@
 <div class="alert alert-primary" role="alert" *ngIf="loadEror">
   {{errorText}} <a [routerLink]="['/recipe']" class="alert-link">Go to main page</a>. Give it a click if you like.
 </div>
-<div class="recipe panel panel-default recipe_padding" *ngIf="recipe">
+<div class="recipe panel panel-default recipe_padding" *ngIf="recipe" style="margin-top: 30px;">
 
   <div class="panel-heading">
     <h3 class="panel-title data-title">{{recipe.title}}</h3>
   </div>
   <div class="panel-body">
     <div class="cover-photo-holder">
-      <img src="{{recipe.cover_image ? recipe.cover_image : '/assets/emptybowl.jpg'}}">
-    </div>
-    <p>{{recipe.description}}</p>
+        <img src="{{recipe.cover_photo ?'http://localhost:8080/images/'+recipe.cover_photo : '/assets/emptybowl.jpg'}}" class="img-responsive">
+       <span>Added Date: {{recipe.date_added | date}}</span> 
+      </div>
+    <p>{{recipe.description | sweering}}</p>
     <div class="time_to_prepare" style="float: left; font-weight: bold; width: 150px;">
       Prepration Time:
     </div>
@@ -38,7 +39,10 @@
       <h4>instructions</h4>
       <ol>
         <li *ngFor="let instruction of recipe.instructions">
-          {{instruction.instruction}} , {{instruction.photo}}
+          {{instruction.instruction}}
+          <div *ngIf="instruction.photo != null">
+              <img src="{{'http://localhost:8080/images/'+instruction.photo}}" class="img-responsive"> 
+          </div>  
         </li>
       </ol>
     </div>

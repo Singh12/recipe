@@ -26,13 +26,33 @@ export class RecipeService {
       .then(response => response.json().data as Recipe)
       .catch(this.handleError);
   }
-  addNewRecipe(recipe: Recipe): Promise<Recipe> {
+  addNewRecipe(recipe: Recipe, files: {}): Promise<Recipe> {
     // this.recipes.unshift(recipe);
     // using PUT fuction to write into service
     return this.http
     .put(RECIPE_SERVER + '/v1/recipes.json', recipe)
     .toPromise()
-    .then(response => response.json().data as Recipe)
+    .then((response) => {
+      const final_recipe: Recipe = response.json().data as Recipe;
+      // we need form data to upload images into server
+      const formdata: FormData = new FormData;
+      if (files['cover_photo']) {
+        const file: File = files['cover_photo'];
+        formdata.append('cover_photo', file, file.name);
+      }
+      if (files['preparation_photos']) {
+        for (let i = 0; i < files['preparation_photos'].length ; i++) {
+          if (files['preparation_photos'][i]) {
+            const file: File = files['preparation_photos'][i];
+            formdata.append('preparation_photos_' + i, file, file.name);
+          }
+        }
+      }
+      return this.http.post(RECIPE_SERVER + `/v1/recipes/${final_recipe.id}/images`, formdata)
+      .toPromise()
+      .then(image_response => final_recipe)
+      .catch(this.handleError);
+    })
     .catch(this.handleError);
   }
   private handleError(error: any): Promise<any> {

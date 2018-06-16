@@ -16,6 +16,7 @@ import { NotFoundComponent } from './component/not-found/not-found.component';
 import { RecipeService } from './services/recipe.service';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { SweeringPipe } from './misc/sweering.pipe';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { FooterComponent } from './components/footer/footer.component';
     EditNewRecipeComponent,
     NotFoundComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SweeringPipe
   ],
   imports: [
     BrowserModule,

@@ -6,7 +6,7 @@
   </div>
   <div class="panel-body">
       <div class="cover-photo-holder">
-          <img src="{{recipe.cover_image ? recipe.cover_image : '/assets/emptybowl.jpg'}}">
+          <img src="{{recipe.cover_photo ?'http://localhost:8080/images/'+recipe.cover_photo : '/assets/emptybowl.jpg'}}">
       </div>
       <p>{{recipe.description}}</p>
       <div class="time_to_prepare" style="float: left; font-weight: bold; width: 150px;">

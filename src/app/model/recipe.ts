@@ -16,14 +16,14 @@ export class Recipe {
     public instructions: Instruction[];
     public cover_photo: string;
     public keywords: string[];
-
+    public date_added: string;
     constructor(id: number,
         t: string, d: string,
         feeds: number, pt: number,
         ingr: Ingredient[],
         inst: Instruction[],
         cp: string,
-        keywords: string[]) {
+        keywords: string[], date_added: string) {
         this.id = id;
         this.title = t;
         this.description = d;
@@ -33,12 +33,13 @@ export class Recipe {
         this.instructions = inst;
         this.cover_photo = cp;
         this.keywords = keywords;
+        this.date_added = date_added;
     }
     public static recipeFromJson(obj: any): Recipe {
         return new Recipe(obj.id, obj.title, obj.description, obj.feeds_this_many, obj.preparation_time,
-        obj.ingredients, obj.instructions, obj.cover_photo, obj.keywords);
+        obj.ingredients, obj.instructions, obj.cover_photo, obj.keywords, obj.date_added);
     }
     public static createBlank() {
-        return new Recipe(-1, '', '', 1, 1, [], [], null, null);
+        return new Recipe(-1, '', '', 1, 1, [], [], null, null, null);
     }
 }
